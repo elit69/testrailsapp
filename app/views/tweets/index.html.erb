@@ -3,6 +3,7 @@
   <tr>
     <th>status1</th>
     <th>status2</th>
+    <th>status Json</th>
     <th>zombie1</th>
     <th>zombie2</th>
     <th>action</th>
@@ -11,6 +12,7 @@
     <tr>
       <td><%= link_to(tweet.status, tweet_path(tweet.id)) %></td>
       <td><%= link_to(tweet.status, tweet) %></td>
+      <td><%= link_to(tweet.status, tweet_path(tweet.id)+".json") %></td>
       <td><%= link_to(tweet.zombie.name, tweet.zombie) %></td>
       <td><%= link_to(tweet.zombie.name, zombie_path(tweet.zombie)) %></td>
       <td><%= link_to("Edit", edit_tweet_path(tweet)) %></td>

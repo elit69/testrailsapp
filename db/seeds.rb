@@ -11,7 +11,7 @@ z = Zombie.create(name: 'bob', graveyard: 'chapel hill cemetery');
 Tweet.create(status: "my left arm is missing but i", zombie: z);
 z = Zombie.create(name: 'jim', graveyard: 'my fathers basement');
 Tweet.create(status: "i just ate some delicious brain", zombie: z);
-z = Zombie.find(1);
+z = Zombie.find_by(name: "ash");
 Tweet.create(status: "omg my fingers turned green", zombie: z);
 
 
