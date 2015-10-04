@@ -1,20 +1,20 @@
 <h1>Listing tweets</h1>
 <table>
   <tr>
-    <th>status1</th>
-    <th>status2</th>
-    <th>status Json</th>
-    <th>zombie1</th>
-    <th>zombie2</th>
+    <th>status</th>
+    <th>Json</th>
+    <th>xml</th>
+    <th>zombie</th>
     <th>action</th>
   </tr>
   <% @tweets.each do |tweet| %>
-    <tr>
-      <td><%= link_to(tweet.status, tweet_path(tweet.id)) %></td>
+    <tr>      
       <td><%= link_to(tweet.status, tweet) %></td>
+      <!-- <td><%= link_to(tweet.status, tweet_path(tweet.id)) %></td> -->
       <td><%= link_to(tweet.status, tweet_path(tweet.id)+".json") %></td>
+      <td><%= link_to(tweet.status, tweet_path(tweet.id)+".xml") %></td>
       <td><%= link_to(tweet.zombie.name, tweet.zombie) %></td>
-      <td><%= link_to(tweet.zombie.name, zombie_path(tweet.zombie)) %></td>
+      <!-- <td><%= link_to(tweet.zombie.name, zombie_path(tweet.zombie)) %></td> -->
       <td><%= link_to("Edit", edit_tweet_path(tweet)) %></td>
       <td><%= link_to("Delete", tweet, method: :delete) %></td>
     </tr>
@@ -23,3 +23,4 @@
     <tr><td>No tweet Found</td></tr>
   <% end%>
 </table>
+<%= link_to("Add New Tweet", new_tweet_path) %>
