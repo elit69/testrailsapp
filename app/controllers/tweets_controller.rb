@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
   before_action :get_tweets, only: [:edit, :update, :destroy, :show]
+  before_action :check_auth, only: [:edit, :update, :destroy]
   def index 
     #session[:count] = session[:count].nil? ? 0 : session[:count] += 1    
     Rails.application.config.count += 1
@@ -43,6 +44,9 @@ class TweetsController < ApplicationController
   end  
   def get_tweets
     @tweet = Tweet.find(params[:id])
+  end
+  def check_auth
+
   end
   #######custom routes
   #def status
