@@ -23,4 +23,6 @@
     <tr><td>No tweet Found</td></tr>
   <% end%>
 </table>
-<%= link_to("Add New Tweet", new_tweet_path) %>
+<p><%= link_to("Add New Tweet", new_tweet_path) %></p>
+<!-- <p><%= pluralize(session[:count], "View") %></p> -->
+<p><%= pluralize(Rails.application.config.count, "View") %></p> 
