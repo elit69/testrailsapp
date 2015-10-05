@@ -1,4 +1,4 @@
-<h1>create tweet</h1>
+<h1>edit tweet</h1>
 <%= form_for(@tweet) do |f| %>
   <p>
     <%= f.label :status %><br/>
@@ -10,7 +10,7 @@
   </p>
   <p>
     <%= f.submit %>
+    <%= link_to("Home", tweets_path) %>
     <%= link_to("Show", tweet_path(@tweet)) %>
-    <%= link_to("Back", tweets_path) %>
   </p>
 <% end %>
