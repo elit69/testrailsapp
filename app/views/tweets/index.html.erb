@@ -1,28 +1,17 @@
-<h1>Listing tweets</h1>
+<h1>Homepage</h1>
+<p><%= link_to("Add New Tweet", new_tweet_path) %></p>
 <table>
-  <tr>
-    <th>status</th>
-    <th>Json</th>
-    <th>xml</th>
-    <th>zombie</th>
-    <th>action</th>
-  </tr>
   <% @tweets.each do |tweet| %>
     <tr>      
-      <td><%= link_to(tweet.status, tweet) %></td>
-      <!-- <td><%= link_to(tweet.status, tweet_path(tweet.id)) %></td> -->
-      <td><%= link_to(tweet.status, tweet_path(tweet.id)+".json") %></td>
-      <td><%= link_to(tweet.status, tweet_path(tweet.id)+".xml") %></td>
-      <td><%= link_to(tweet.zombie.name, tweet.zombie) %></td>
-      <!-- <td><%= link_to(tweet.zombie.name, zombie_path(tweet.zombie)) %></td> -->
-      <td><%= link_to("Edit", edit_tweet_path(tweet)) %></td>
-      <td><%= link_to("Delete", tweet, method: :delete) %></td>
+      <td><%= link_to(tweet.zombie.name, tweet.zombie) %> says
+          <%= link_to(tweet.status, tweet) %></td>
     </tr>
   <% end%>  
   <%if @tweets.size == 0 %>
     <tr><td>No tweet Found</td></tr>
   <% end%>
 </table>
-<p><%= link_to("Add New Tweet", new_tweet_path) %></p>
-<!-- <p><%= pluralize(session[:count], "View") %></p> -->
-<p><%= pluralize(Rails.application.config.count, "View") %></p> 
+<!-- <%=link_to params[:page_number].to_i-1, page_number_path(params[:page_number].to_i-1)%> -->
+<%=link_to "Previous", page_number_path(@page_number-1)%>
+<%=link_to @page_number, page_number_path(@page_number)%>
+<%=link_to "Next", page_number_path(@page_number+1)%>

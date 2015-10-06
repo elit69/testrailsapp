@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   #get ':name' => 'tweets#index', as: 'zombie_tweets'
     #zombie_tweets_path(:name)
     #/ash   /bob  /elit
+  get ':page_number' => 'tweets#index', as: 'page_number'
 end

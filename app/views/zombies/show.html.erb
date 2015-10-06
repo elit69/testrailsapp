@@ -1,0 +1,9 @@
+<%= link_to("Home", root_path) %> > 
+<%= link_to(@zombie.name, @zombie) %>
+<% @zombie.tweets.each do |tweet| %>
+  <p><%= tweet.updated_at %> <%= tweet.status %></p>
+<% end %>
+
+<%if @zombie.tweets.size == 0 %>
+  <p>No tweet Found</p>
+<% end%>

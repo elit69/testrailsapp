@@ -1,3 +1,5 @@
+<%= link_to("Home", root_path) %> >
+<%= link_to("Edit", edit_tweet_path(@tweet)) %>
 <h1>edit tweet</h1>
 <%= form_for(@tweet) do |f| %>
   <p>
@@ -10,7 +12,6 @@
   </p>
   <p>
     <%= f.submit %>
-    <%= link_to("Home", tweets_path) %>
     <%= link_to("Show", tweet_path(@tweet)) %>
   </p>
 <% end %>

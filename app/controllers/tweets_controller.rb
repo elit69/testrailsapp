@@ -4,7 +4,9 @@ class TweetsController < ApplicationController
   def index 
     #session[:count] = session[:count].nil? ? 0 : session[:count] += 1    
     Rails.application.config.count += 1
-    @tweets = Tweet.all
+    @page_number = 0
+    @page_number = params[:page_number].to_i
+    @tweets = Tweet.all.limit(20).offset((@page_number-1)*20)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tweets , except: [:updated_at, :created_at]  }
